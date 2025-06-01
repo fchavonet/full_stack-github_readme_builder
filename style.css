@@ -5,7 +5,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: color 0.2s ease-in-out, border 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: color 0.1s ease-in-out, border 0.1s ease-in-out, background-color 0.1s ease-in-out;
     scroll-behavior: smooth;
 }
 
@@ -99,6 +99,10 @@ button.dark-mode:hover {
     background-color: var(--dark-hover-color);
 }
 
+hr {
+    margin: 1rem 0;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -162,6 +166,7 @@ aside {
     width: 15rem;
     height: 100%;
     padding: 1rem;
+    overflow-y: scroll;
     border-right: 1px solid var(--light-border-color);
 }
 
@@ -175,7 +180,7 @@ aside.dark-mode {
 
 aside ul {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -285,7 +290,8 @@ footer.dark-mode {
 
     #preview-section {
         width: 100%;
-        height: 25rem;
+        height: auto;
         margin: 0;
+        overflow: unset;
     }
 }

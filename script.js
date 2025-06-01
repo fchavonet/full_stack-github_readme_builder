@@ -199,3 +199,190 @@ document.getElementById("insert-title-btn").addEventListener("click", () => {
 `;
 	insertMarkdownAtCursor(markdown, insertText);
 });
+
+// Insert table of contents.
+document.getElementById("insert-toc-btn").addEventListener("click", () => {
+	const insertText = `## 🔖 Table of contents
+
+<details>
+  <summary>
+    CLICK TO ENLARGE 😇
+  </summary>
+  📄 <a href="#description">Description</a>
+  <br>
+  🎓 <a href="#objectives">Objectives</a>
+  <br>
+  🔨 <a href="#tech-stack">Tech stack</a>
+  <br>
+  📂 <a href="#files-description">Files description</a>
+  <br>
+  💻 <a href="#installation">Installation</a>
+  <br>
+  🔧 <a href="#whats-next">What's next?</a>
+  <br>
+  ♥️ <a href="#thanks">Thanks</a>
+  <br>
+  👷 <a href="#authors">Authors</a>
+  </details>
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert description.
+document.getElementById("insert-description-btn").addEventListener("click", () => {
+	const insertText = `## 📄 <span id="description">Description</span>
+
+The project description.
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert objectives.
+document.getElementById("insert-objectives-btn").addEventListener("click", () => {
+	const insertText = `## 🎓 <span id="objectives">Objectives</span>
+
+- Objectives list.
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert tech stack.
+document.getElementById("insert-techstack-btn").addEventListener("click", () => {
+	const insertText = `## 🔨 <span id="tech-stack">Tech stack</span>
+
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5 badge">
+  <img src="https://img.shields.io/badge/CSS3-1572b6?logo=css3&logoColor=white&style=for-the-badge" alt="CSS3 badge">
+  <img src="https://img.shields.io/badge/JAVASCRIPT-f7df1e?logo=javascript&logoColor=black&style=for-the-badge" alt="JavaScript badge">
+</p>
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert files description.
+document.getElementById("insert-files-btn").addEventListener("click", () => {
+	const insertText = `## 📂 <span id="files-description">File description</span>
+
+| **FILE**            | **DESCRIPTION**                                   |
+| :-----------------: | ------------------------------------------------- |
+| \`file_name\`       | Description of the file.                          |
+| \`folder_name\`     | Description of the folder.                        |
+| \`.gitignore\`      | Specifies files and folders to be ignored by Git. |
+| \`README.md\`       | The README file you are currently reading 😉.     |
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert installation.
+document.getElementById("insert-installation-btn").addEventListener("click", () => {
+	const insertText = `## 💻 <span id="installation">Installation</span>
+
+1. Clone this repository:
+  - Open your preferred Terminal.
+  - Navigate to the directory where you want to clone the repository.
+  - Run the following command:
+
+\`\`\`bash
+git clone <link_to_the_repository>
+\`\`\`
+
+2. Open the repository you've just cloned.
+
+3. Remaining installation instructions.
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert what's next.
+document.getElementById("insert-next-btn").addEventListener("click", () => {
+	const insertText = `## 🔧 <span id="whats-next">What's next?</span>
+
+- List of next steps for the project.
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert Thanks.
+document.getElementById("insert-thanks-btn").addEventListener("click", () => {
+	const insertText = `## ♥️ <span id="thanks">Thanks</span>
+
+- Your message of thanks here. 
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert authors.
+document.getElementById("insert-authors-btn").addEventListener("click", () => {
+	const insertText = `## 👷 <span id="authors">Authors</span>
+
+**Fabien CHAVONET**
+- GitHub: [@fchavonet](https://github.com/fchavonet)
+- LinkedIn: [@fchavonet](https://www.linkedin.com/in/fchavonet)
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Insert blockquote.
+document.getElementById("insert-blockquote-btn").addEventListener("click", () => {
+	const insertText = `> Your blockquotes here.
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert break.
+document.getElementById("insert-break-btn").addEventListener("click", () => {
+	const insertText = `---
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert code.
+document.getElementById("insert-code-btn").addEventListener("click", () => {
+	const insertText = `\`\`\`
+Your code here.
+\`\`\`
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert image.
+document.getElementById("insert-image-btn").addEventListener("click", () => {
+	const insertText = `![Image](./assets/images/logo-markdown.webp)
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert link.
+document.getElementById("insert-link-btn").addEventListener("click", () => {
+	const insertText = `[GitHub](https://github.com/)
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
+
+// Insert table.
+document.getElementById("insert-table-btn").addEventListener("click", () => {
+	const insertText = `| **Column 1** | **Column 2** | **Column 3** |
+| ------------ | ------------ | ------------ |
+| Row 1        | Row 1        | Row 1        |
+| Row 2        | Row 2        | Row 2        |
+| Row 3        | Row 3        | Row 3        |
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
