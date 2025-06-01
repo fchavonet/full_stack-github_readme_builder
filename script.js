@@ -164,3 +164,38 @@ modeToggleBtn.addEventListener("click", () => {
 	modeToggleBtn.innerHTML = "";
 	modeToggleBtn.appendChild(icon);
 });
+
+
+/*****************************
+* MODULES INSERTION BEHAVIOR *
+*****************************/
+
+function insertMarkdownAtCursor(markdown, insertText) {
+	// Focus the textarea.
+	markdown.focus();
+
+	// Get current selection.
+	const startPosition = markdown.selectionStart;
+	const endPosition = markdown.selectionEnd;
+
+	const before = markdown.value.substring(0, startPosition);
+	const after = markdown.value.substring(endPosition);
+
+	// Insert text.
+	markdown.value = before + insertText + after;
+
+	// Move cursor after inserted text.
+	const newCursorPosition = startPosition + insertText.length;
+	markdown.setSelectionRange(newCursorPosition, newCursorPosition);
+
+	// Render updated preview.
+	renderMarkdown();
+}
+
+// Insert title.
+document.getElementById("insert-title-btn").addEventListener("click", () => {
+	const insertText = `# Title
+
+`;
+	insertMarkdownAtCursor(markdown, insertText);
+});
