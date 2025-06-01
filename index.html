@@ -22,17 +22,62 @@
 <body>
     <!-- HEADER -->
     <header>
+        <!-- Brand -->
+        <h1><i class="bi bi-github brand"></i>README Builder</h1>
 
+        <!-- Buttons menu -->
+        <ul>
+            <li>
+                <button id="reset-btn">
+                    RESET
+                </button>
+            </li>
+
+            <li>
+                <button id="copy-btn">
+                    <i class="bi bi-copy"></i>
+                </button>
+
+                <button id="download-btn">
+                    <i class="bi bi-download"></i>
+                </button>
+            </li>
+
+            <li>
+                <button id="mode-toggle-btn">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+            </li>
+        </ul>
     </header>
 
     <!-- MAIN -->
     <main>
+        <!-- Aside modules -->
+        <aside>
+            <ul>
+                <li>
+                    <button>
+                        Title
+                    </button>
+                </li>
+            </ul>
+        </aside>
 
+        <!-- Markdown section -->
+        <section id="markdown-section">
+            <textarea id="markdown" name="markdown"></textarea>
+        </section>
+
+        <!-- Preview section -->
+        <section id="preview-section">
+            <div id="preview"></div>
+        </section>
     </main>
 
     <!-- FOOTER -->
     <footer>
-
+        <p>© 2025 - Fabien Chavonet.</p>
     </footer>
 </body>
 
