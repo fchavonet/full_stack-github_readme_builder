@@ -1,0 +1,30 @@
+/* RESET CSS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* NO SCROLLBAR */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* VARIABLES */
+:root {}
+
+/* GENERAL */
+
+/* HEADER */
+
+/* FOOTER */
+
+/* RESPONSIVE */
