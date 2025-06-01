@@ -97,6 +97,9 @@ modeToggleBtn.addEventListener("click", () => {
 	const body = document.body;
 	const header = document.querySelector("header");
 	const buttons = document.querySelectorAll("button");
+	const aside = document.querySelector("aside");
+	const textarea = document.querySelector("textarea");
+	const previewSection = document.getElementById("preview-section");
 	const footer = document.querySelector("footer");
 
 	const icon = document.createElement("i");
@@ -117,6 +120,15 @@ modeToggleBtn.addEventListener("click", () => {
 			buttons.classList.add("dark-mode")
 		});
 
+		aside.classList.remove("light-mode");
+		aside.classList.add("dark-mode");
+
+		textarea.classList.remove("light-mode");
+		textarea.classList.add("dark-mode");
+
+		previewSection.classList.remove("light-mode");
+		previewSection.classList.add("dark-mode");
+
 		footer.classList.remove("light-mode");
 		footer.classList.add("dark-mode");
 	} else {
@@ -134,6 +146,15 @@ modeToggleBtn.addEventListener("click", () => {
 			buttons.classList.remove("dark-mode")
 			buttons.classList.add("light-mode")
 		});
+
+		aside.classList.remove("dark-mode");
+		aside.classList.add("light-mode");
+
+		textarea.classList.remove("dark-mode");
+		textarea.classList.add("light-mode");
+
+		previewSection.classList.remove("dark-mode");
+		previewSection.classList.add("light-mode");
 
 		footer.classList.remove("dark-mode");
 		footer.classList.add("light-mode");
