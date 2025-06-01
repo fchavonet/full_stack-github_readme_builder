@@ -98,6 +98,10 @@ modeToggleBtn.addEventListener("click", () => {
 	const header = document.querySelector("header");
 	const buttons = document.querySelectorAll("button");
 	const aside = document.querySelector("aside");
+	const hrs = document.querySelectorAll("hr");
+	const labels = document.querySelectorAll("label");
+	const inputs = document.querySelectorAll("input");
+	const select = document.querySelector("select");
 	const textarea = document.querySelector("textarea");
 	const previewSection = document.getElementById("preview-section");
 	const footer = document.querySelector("footer");
@@ -122,6 +126,24 @@ modeToggleBtn.addEventListener("click", () => {
 
 		aside.classList.remove("light-mode");
 		aside.classList.add("dark-mode");
+
+		hrs.forEach((hr) => {
+			hr.classList.remove("light-mode")
+			hr.classList.add("dark-mode")
+		});
+
+		labels.forEach((label) => {
+			label.classList.remove("light-mode")
+			label.classList.add("dark-mode")
+		});
+
+		inputs.forEach((input) => {
+			input.classList.remove("light-mode")
+			input.classList.add("dark-mode")
+		});
+
+		select.classList.remove("light-mode");
+		select.classList.add("dark-mode");
 
 		textarea.classList.remove("light-mode");
 		textarea.classList.add("dark-mode");
@@ -149,6 +171,24 @@ modeToggleBtn.addEventListener("click", () => {
 
 		aside.classList.remove("dark-mode");
 		aside.classList.add("light-mode");
+
+		hrs.forEach((hr) => {
+			hr.classList.remove("dark-mode")
+			hr.classList.add("light-mode")
+		});
+
+		labels.forEach((label) => {
+			label.classList.remove("dark-mode")
+			label.classList.add("light-mode")
+		});
+
+		inputs.forEach((input) => {
+			input.classList.remove("dark-mode")
+			input.classList.add("light-mode")
+		});
+
+		select.classList.remove("dark-mode");
+		select.classList.add("light-mode");
 
 		textarea.classList.remove("dark-mode");
 		textarea.classList.add("light-mode");
@@ -385,4 +425,37 @@ document.getElementById("insert-table-btn").addEventListener("click", () => {
 
 `;
 	insertMarkdownAtCursor(markdown, insertText);
+});
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Insert badge.
+document.getElementById("insert-badge-btn").addEventListener("click", () => {
+	const name = document.getElementById("name");
+	const backgroundColor = document.getElementById("background-color");
+	const logo = document.getElementById("logo");
+	const logoColor = document.getElementById("logo-color");
+
+	const nameValue = name.value.trim().toUpperCase();;
+	const backgroundColorValue = backgroundColor.value.trim();
+	const logoValue = logo.value.trim().toLowerCase();;
+	const logoColorValue = logoColor.value;
+
+	if (nameValue === "" || backgroundColorValue === "" || logoValue === "") {
+		alert("Please enter a name, background color, and logo.");
+		return;
+	}
+
+	const nameEscaped = encodeURIComponent(nameValue);
+	const colorEscaped = encodeURIComponent(backgroundColorValue);
+	const logoEscaped = encodeURIComponent(logoValue);
+	const logoColorEscaped = encodeURIComponent(logoColorValue);
+
+	const badgeUrl = "https://img.shields.io/badge/" + nameEscaped + "-" + colorEscaped + "?logo=" + logoEscaped + "&logoColor=" + logoColorEscaped + "&style=for-the-badge";
+
+	const altText = nameValue + " badge";
+	const imgTag = `<img src="${badgeUrl}" alt="${altText}">
+`;
+
+	insertMarkdownAtCursor(markdown, imgTag);
 });

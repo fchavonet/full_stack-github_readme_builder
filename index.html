@@ -64,7 +64,11 @@
     <main>
         <!-- Aside modules -->
         <aside class="no-scrollbar">
+            <!-- Template modules -->
+            <h2>Template</h2>
+
             <ul>
+                <!-- Title module -->
                 <li>
                     <button id="insert-title-btn" class="full">
                         Title
@@ -137,6 +141,9 @@
 
             <hr>
 
+            <!-- Markdown modules  -->
+            <h2>Markdown</h2>
+
             <ul>
                 <!-- Blockquotes module -->
                 <li>
@@ -179,9 +186,42 @@
                         Table
                     </button>
                 </li>
-
-
             </ul>
+
+            <hr>
+
+            <!-- Badge generator -->
+            <h2>Badge Generator</h2>
+
+            <div id="badge-generator">
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" value="Apple">
+                </div>
+
+                <div>
+                    <label for="background-color">Background color</label>
+                    <input id="background-color" class="uppercase" name="background-color" type="text" value="000000" maxlength="6">
+                </div>
+
+                <div>
+                    <label for="logo">Logo</label>
+                    <input id="logo" name="logo" type="text" value="apple">
+                </div>
+
+                <div>
+                    <label for="logo-color">Logo color</label>
+
+                    <select id="logo-color" name="logo-color">
+                        <option value="black">Black</option>
+                        <option value="white" selected>White</option>
+                    </select>
+                </div>
+
+                <button id="insert-badge-btn" class="full">
+                    Badge
+                </button>
+            </div>
         </aside>
 
         <!-- Markdown section -->
