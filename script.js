@@ -78,3 +78,36 @@ downloadBtn.addEventListener("click", () => {
 	// Free up memory by releasing the temporary object URL.
 	URL.revokeObjectURL(url);
 });
+
+
+/******************************
+* MODE TOGGLE BUTTON BEHAVIOR *
+******************************/
+
+const LIGHT_CSS = "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css";
+const DARK_CSS = "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.min.css";
+
+const ghMdCss = document.getElementById("gh-md-css");
+const modeToggleBtn = document.getElementById("mode-toggle-btn");
+
+
+// Toggle theme on click.
+modeToggleBtn.addEventListener("click", () => {
+	const currentHref = ghMdCss.getAttribute("href");
+
+	const icon = document.createElement("i");
+
+	if (currentHref === LIGHT_CSS) {
+		ghMdCss.setAttribute("href", DARK_CSS);
+
+		icon.classList.add("bi", "bi-sun");
+	} else {
+		ghMdCss.setAttribute("href", LIGHT_CSS);
+
+		icon.classList.add("bi", "bi-moon-stars");
+	}
+
+	// Replace existing icon safely.
+	modeToggleBtn.innerHTML = "";
+	modeToggleBtn.appendChild(icon);
+});
