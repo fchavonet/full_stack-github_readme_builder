@@ -95,16 +95,24 @@ const modeToggleBtn = document.getElementById("mode-toggle-btn");
 modeToggleBtn.addEventListener("click", () => {
 	const currentHref = ghMdCss.getAttribute("href");
 
+	const body = document.body;
+
 	const icon = document.createElement("i");
 
 	if (currentHref === LIGHT_CSS) {
 		ghMdCss.setAttribute("href", DARK_CSS);
 
 		icon.classList.add("bi", "bi-sun");
+
+		body.classList.remove("light-mode");
+		body.classList.add("dark-mode");
 	} else {
 		ghMdCss.setAttribute("href", LIGHT_CSS);
 
 		icon.classList.add("bi", "bi-moon-stars");
+
+		body.classList.remove("dark-mode");
+		body.classList.add("light-mode");
 	}
 
 	// Replace existing icon safely.

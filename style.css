@@ -19,9 +19,36 @@
 }
 
 /* VARIABLES */
-:root {}
+:root {
+    /* Light mode */
+    --light-text-color: #000000;
+    --light-border-color: #d2e3df;
+    --light-darker-background-color: #f6f8fa;
+    --light-background-color: #ffffff;
+    --light-hover-color: #eaedf0;
+
+    /* Dark mode */
+    --dark-text-color: #f1f6fb;
+    --dark-border-color: #3e444c;
+    --dark-darker-background-color: #020409;
+    --dark-background-color: #0d1117;
+    --dark-hover-color: #16191f;
+}
 
 /* GENERAL */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+body.light-mode {
+    color: var(--light-text-color);
+    background-color: var(--light-background-color);
+}
+
+body.dark-mode {
+    color: var(--dark-text-color);
+    background-color: var(--dark-background-color);
+}
 
 /* HEADER */
 
