@@ -90,7 +90,6 @@ const DARK_CSS = "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1
 const ghMdCss = document.getElementById("gh-md-css");
 const modeToggleBtn = document.getElementById("mode-toggle-btn");
 
-
 // Toggle theme on click.
 modeToggleBtn.addEventListener("click", () => {
 	const currentHref = ghMdCss.getAttribute("href");
@@ -98,7 +97,7 @@ modeToggleBtn.addEventListener("click", () => {
 	const body = document.body;
 	const header = document.querySelector("header");
 	const buttons = document.querySelectorAll("button");
-
+	const footer = document.querySelector("footer");
 
 	const icon = document.createElement("i");
 
@@ -117,6 +116,9 @@ modeToggleBtn.addEventListener("click", () => {
 			buttons.classList.remove("light-mode")
 			buttons.classList.add("dark-mode")
 		});
+
+		footer.classList.remove("light-mode");
+		footer.classList.add("dark-mode");
 	} else {
 		ghMdCss.setAttribute("href", LIGHT_CSS);
 
@@ -132,6 +134,9 @@ modeToggleBtn.addEventListener("click", () => {
 			buttons.classList.remove("dark-mode")
 			buttons.classList.add("light-mode")
 		});
+
+		footer.classList.remove("dark-mode");
+		footer.classList.add("light-mode");
 	}
 
 	// Replace existing icon safely.

@@ -108,19 +108,19 @@ header {
     align-items: center;
     color: var(--light-text-color);
     border-bottom: 1px solid var(--light-border-color);
-    background-color: var(--light-header-background-color);
+    background-color: var(--light-darker-background-color);
 }
 
 header.light-mode {
     color: var(--light-text-color);
     border-bottom: 1px solid var(--light-border-color);
-    background-color: var(--light-header-background-color);
+    background-color: var(--light-darker-background-color);
 }
 
 header.dark-mode {
     color: var(--dark-text-color);
     border-bottom: 1px solid var(--dark-border-color);
-    background-color: var(--dark-header-background-color);
+    background-color: var(--dark-darker-background-color);
 }
 
 header ul {
@@ -146,5 +146,25 @@ header h1 {
 }
 
 /* FOOTER */
+footer {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    background-color: var(--light-header-background-color);
+}
+
+footer.light-mode {
+    border-top: 1px solid var(--light-border-color);
+    background-color: var(--light-darker-background-color);
+}
+
+footer.dark-mode {
+    border-top: 1px solid var(--dark-border-color);
+    background-color: var(--dark-darker-background-color);
+}
 
 /* RESPONSIVE */
