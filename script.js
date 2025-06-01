@@ -96,6 +96,9 @@ modeToggleBtn.addEventListener("click", () => {
 	const currentHref = ghMdCss.getAttribute("href");
 
 	const body = document.body;
+	const header = document.querySelector("header");
+	const buttons = document.querySelectorAll("button");
+
 
 	const icon = document.createElement("i");
 
@@ -106,6 +109,14 @@ modeToggleBtn.addEventListener("click", () => {
 
 		body.classList.remove("light-mode");
 		body.classList.add("dark-mode");
+
+		header.classList.remove("light-mode");
+		header.classList.add("dark-mode");
+
+		buttons.forEach((buttons) => {
+			buttons.classList.remove("light-mode")
+			buttons.classList.add("dark-mode")
+		});
 	} else {
 		ghMdCss.setAttribute("href", LIGHT_CSS);
 
@@ -113,6 +124,14 @@ modeToggleBtn.addEventListener("click", () => {
 
 		body.classList.remove("dark-mode");
 		body.classList.add("light-mode");
+
+		header.classList.remove("dark-mode");
+		header.classList.add("light-mode");
+
+		buttons.forEach((buttons) => {
+			buttons.classList.remove("dark-mode")
+			buttons.classList.add("light-mode")
+		});
 	}
 
 	// Replace existing icon safely.
