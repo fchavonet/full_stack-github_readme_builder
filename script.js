@@ -31,13 +31,16 @@ markdown.addEventListener("input", renderMarkdown);
 const copyBtn = document.getElementById("copy-btn");
 
 // Copy markdown content to clipboard.
-copyBtn.addEventListener("click", () => {
+copyBtn.addEventListener("click", function () {
 	if (markdown.value.trim() !== "") {
-		navigator.clipboard.writeText(markdown.value).then(() => {
-			alert("Copied to clipboard!");
-		}).catch(error => console.error("Copy failed:", error));
+		navigator.clipboard.writeText(markdown.value).then(function () {
+			showToast("Copied to clipboard!", "green");
+		}).catch(function (error) {
+			console.error("Copy failed:", error);
+			showToast("Error copying to clipboard.", "red");
+		});
 	} else {
-		alert("Nothing to copy!")
+		showToast("Nothing to copy!", "goldenrod");
 	}
 });
 
@@ -48,7 +51,7 @@ copyBtn.addEventListener("click", () => {
 const resetBtn = document.getElementById("reset-btn");
 
 // Reset markdown to its initial state.
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListener("click", function () {
 	markdown.value = initialMarkdown;
 	renderMarkdown();
 });
@@ -60,7 +63,7 @@ resetBtn.addEventListener("click", () => {
 
 const downloadBtn = document.getElementById("download-btn");
 
-downloadBtn.addEventListener("click", () => {
+downloadBtn.addEventListener("click", function () {
 	const content = markdown.value;
 	const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
 	const url = URL.createObjectURL(blob);
@@ -91,7 +94,7 @@ const ghMdCss = document.getElementById("gh-md-css");
 const modeToggleBtn = document.getElementById("mode-toggle-btn");
 
 // Toggle theme on click.
-modeToggleBtn.addEventListener("click", () => {
+modeToggleBtn.addEventListener("click", function () {
 	const currentHref = ghMdCss.getAttribute("href");
 
 	const body = document.body;
@@ -119,7 +122,7 @@ modeToggleBtn.addEventListener("click", () => {
 		header.classList.remove("light-mode");
 		header.classList.add("dark-mode");
 
-		buttons.forEach((buttons) => {
+		buttons.forEach(function (buttons) {
 			buttons.classList.remove("light-mode")
 			buttons.classList.add("dark-mode")
 		});
@@ -127,17 +130,17 @@ modeToggleBtn.addEventListener("click", () => {
 		aside.classList.remove("light-mode");
 		aside.classList.add("dark-mode");
 
-		hrs.forEach((hr) => {
+		hrs.forEach(function (hr) {
 			hr.classList.remove("light-mode")
 			hr.classList.add("dark-mode")
 		});
 
-		labels.forEach((label) => {
+		labels.forEach(function (label) {
 			label.classList.remove("light-mode")
 			label.classList.add("dark-mode")
 		});
 
-		inputs.forEach((input) => {
+		inputs.forEach(function (input) {
 			input.classList.remove("light-mode")
 			input.classList.add("dark-mode")
 		});
@@ -164,7 +167,7 @@ modeToggleBtn.addEventListener("click", () => {
 		header.classList.remove("dark-mode");
 		header.classList.add("light-mode");
 
-		buttons.forEach((buttons) => {
+		buttons.forEach(function (buttons) {
 			buttons.classList.remove("dark-mode")
 			buttons.classList.add("light-mode")
 		});
@@ -172,17 +175,17 @@ modeToggleBtn.addEventListener("click", () => {
 		aside.classList.remove("dark-mode");
 		aside.classList.add("light-mode");
 
-		hrs.forEach((hr) => {
+		hrs.forEach(function (hr) {
 			hr.classList.remove("dark-mode")
 			hr.classList.add("light-mode")
 		});
 
-		labels.forEach((label) => {
+		labels.forEach(function (label) {
 			label.classList.remove("dark-mode")
 			label.classList.add("light-mode")
 		});
 
-		inputs.forEach((input) => {
+		inputs.forEach(function (input) {
 			input.classList.remove("dark-mode")
 			input.classList.add("light-mode")
 		});
@@ -204,6 +207,39 @@ modeToggleBtn.addEventListener("click", () => {
 	modeToggleBtn.innerHTML = "";
 	modeToggleBtn.appendChild(icon);
 });
+
+
+/*****************
+* TOAST BEHAVIOR *
+*****************/
+
+function showToast(message, backgroundColor) {
+	const toastContainer = document.getElementById("toast-container");
+
+	const toast = document.createElement("div");
+
+	toast.classList.add("toast");
+	toast.textContent = message;
+
+	if (backgroundColor !== undefined && backgroundColor !== null && backgroundColor.trim() !== "") {
+		toast.style.backgroundColor = backgroundColor;
+	}
+
+	toastContainer.appendChild(toast);
+
+	toast.offsetWidth;
+
+	toast.classList.add("show");
+
+	setTimeout(function () {
+		toast.classList.remove("show");
+		toast.addEventListener("transitionend", function () {
+			if (toast.parentNode) {
+				toast.parentNode.removeChild(toast);
+			}
+		});
+	}, 3000);
+}
 
 
 /*****************************
@@ -233,7 +269,7 @@ function insertMarkdownAtCursor(markdown, insertText) {
 }
 
 // Insert title.
-document.getElementById("insert-title-btn").addEventListener("click", () => {
+document.getElementById("insert-title-btn").addEventListener("click", function () {
 	const insertText = `# Title
 
 `;
@@ -241,7 +277,7 @@ document.getElementById("insert-title-btn").addEventListener("click", () => {
 });
 
 // Insert table of contents.
-document.getElementById("insert-toc-btn").addEventListener("click", () => {
+document.getElementById("insert-toc-btn").addEventListener("click", function () {
 	const insertText = `## 🔖 Table of contents
 
 <details>
@@ -270,7 +306,7 @@ document.getElementById("insert-toc-btn").addEventListener("click", () => {
 });
 
 // Insert description.
-document.getElementById("insert-description-btn").addEventListener("click", () => {
+document.getElementById("insert-description-btn").addEventListener("click", function () {
 	const insertText = `## 📄 <span id="description">Description</span>
 
 The project description.
@@ -280,7 +316,7 @@ The project description.
 });
 
 // Insert objectives.
-document.getElementById("insert-objectives-btn").addEventListener("click", () => {
+document.getElementById("insert-objectives-btn").addEventListener("click", function () {
 	const insertText = `## 🎓 <span id="objectives">Objectives</span>
 
 - Objectives list.
@@ -290,7 +326,7 @@ document.getElementById("insert-objectives-btn").addEventListener("click", () =>
 });
 
 // Insert tech stack.
-document.getElementById("insert-techstack-btn").addEventListener("click", () => {
+document.getElementById("insert-techstack-btn").addEventListener("click", function () {
 	const insertText = `## 🔨 <span id="tech-stack">Tech stack</span>
 
 <p align="left">
@@ -304,7 +340,7 @@ document.getElementById("insert-techstack-btn").addEventListener("click", () => 
 });
 
 // Insert files description.
-document.getElementById("insert-files-btn").addEventListener("click", () => {
+document.getElementById("insert-files-btn").addEventListener("click", function () {
 	const insertText = `## 📂 <span id="files-description">File description</span>
 
 | **FILE**            | **DESCRIPTION**                                   |
@@ -319,7 +355,7 @@ document.getElementById("insert-files-btn").addEventListener("click", () => {
 });
 
 // Insert installation.
-document.getElementById("insert-installation-btn").addEventListener("click", () => {
+document.getElementById("insert-installation-btn").addEventListener("click", function () {
 	const insertText = `## 💻 <span id="installation">Installation</span>
 
 1. Clone this repository:
@@ -340,7 +376,7 @@ git clone <link_to_the_repository>
 });
 
 // Insert what's next.
-document.getElementById("insert-next-btn").addEventListener("click", () => {
+document.getElementById("insert-next-btn").addEventListener("click", function () {
 	const insertText = `## 🔧 <span id="whats-next">What's next?</span>
 
 - List of next steps for the project.
@@ -350,7 +386,7 @@ document.getElementById("insert-next-btn").addEventListener("click", () => {
 });
 
 // Insert Thanks.
-document.getElementById("insert-thanks-btn").addEventListener("click", () => {
+document.getElementById("insert-thanks-btn").addEventListener("click", function () {
 	const insertText = `## ♥️ <span id="thanks">Thanks</span>
 
 - Your message of thanks here. 
@@ -360,7 +396,7 @@ document.getElementById("insert-thanks-btn").addEventListener("click", () => {
 });
 
 // Insert authors.
-document.getElementById("insert-authors-btn").addEventListener("click", () => {
+document.getElementById("insert-authors-btn").addEventListener("click", function () {
 	const insertText = `## 👷 <span id="authors">Authors</span>
 
 **Fabien CHAVONET**
@@ -374,7 +410,7 @@ document.getElementById("insert-authors-btn").addEventListener("click", () => {
 ////////////////////////////////////////////////////////////////////////////////
 
 // Insert blockquote.
-document.getElementById("insert-blockquote-btn").addEventListener("click", () => {
+document.getElementById("insert-blockquote-btn").addEventListener("click", function () {
 	const insertText = `> Your blockquotes here.
 
 `;
@@ -382,7 +418,7 @@ document.getElementById("insert-blockquote-btn").addEventListener("click", () =>
 });
 
 // Insert break.
-document.getElementById("insert-break-btn").addEventListener("click", () => {
+document.getElementById("insert-break-btn").addEventListener("click", function () {
 	const insertText = `---
 
 `;
@@ -390,7 +426,7 @@ document.getElementById("insert-break-btn").addEventListener("click", () => {
 });
 
 // Insert code.
-document.getElementById("insert-code-btn").addEventListener("click", () => {
+document.getElementById("insert-code-btn").addEventListener("click", function () {
 	const insertText = `\`\`\`
 Your code here.
 \`\`\`
@@ -400,7 +436,7 @@ Your code here.
 });
 
 // Insert image.
-document.getElementById("insert-image-btn").addEventListener("click", () => {
+document.getElementById("insert-image-btn").addEventListener("click", function () {
 	const insertText = `![Image](./assets/images/logo-markdown.webp)
 
 `;
@@ -408,7 +444,7 @@ document.getElementById("insert-image-btn").addEventListener("click", () => {
 });
 
 // Insert link.
-document.getElementById("insert-link-btn").addEventListener("click", () => {
+document.getElementById("insert-link-btn").addEventListener("click", function () {
 	const insertText = `[GitHub](https://github.com/)
 
 `;
@@ -416,7 +452,7 @@ document.getElementById("insert-link-btn").addEventListener("click", () => {
 });
 
 // Insert table.
-document.getElementById("insert-table-btn").addEventListener("click", () => {
+document.getElementById("insert-table-btn").addEventListener("click", function () {
 	const insertText = `| **Column 1** | **Column 2** | **Column 3** |
 | ------------ | ------------ | ------------ |
 | Row 1        | Row 1        | Row 1        |
@@ -430,7 +466,7 @@ document.getElementById("insert-table-btn").addEventListener("click", () => {
 ////////////////////////////////////////////////////////////////////////////////
 
 // Insert badge.
-document.getElementById("insert-badge-btn").addEventListener("click", () => {
+document.getElementById("insert-badge-btn").addEventListener("click", function () {
 	const name = document.getElementById("name");
 	const backgroundColor = document.getElementById("background-color");
 	const logo = document.getElementById("logo");
@@ -442,7 +478,7 @@ document.getElementById("insert-badge-btn").addEventListener("click", () => {
 	const logoColorValue = logoColor.value;
 
 	if (nameValue === "" || backgroundColorValue === "" || logoValue === "") {
-		alert("Please enter a name, background color, and logo.");
+		showToast("Please enter a name, background color, and logo.", "goldenrod");
 		return;
 	}
 
