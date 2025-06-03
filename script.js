@@ -108,6 +108,8 @@ modeToggleBtn.addEventListener("click", function () {
 	const textarea = document.querySelector("textarea");
 	const previewSection = document.getElementById("preview-section");
 	const footer = document.querySelector("footer");
+	const modalContents = document.querySelectorAll(".modal-content");
+	const codes = document.querySelectorAll(".modal-body code");
 
 	const icon = document.createElement("i");
 
@@ -156,6 +158,16 @@ modeToggleBtn.addEventListener("click", function () {
 
 		footer.classList.remove("light-mode");
 		footer.classList.add("dark-mode");
+
+		modalContents.forEach(function (modalContent) {
+			modalContent.classList.remove("light-mode");
+			modalContent.classList.add("dark-mode");
+		});
+
+		codes.forEach(function (code) {
+			code.classList.remove("light-mode");
+			code.classList.add("dark-mode");
+		});
 	} else {
 		ghMdCss.setAttribute("href", LIGHT_CSS);
 
@@ -201,6 +213,16 @@ modeToggleBtn.addEventListener("click", function () {
 
 		footer.classList.remove("dark-mode");
 		footer.classList.add("light-mode");
+
+		modalContents.forEach(function (modalContent) {
+			modalContent.classList.remove("dark-mode");
+			modalContent.classList.add("light-mode");
+		});
+
+		codes.forEach(function (code) {
+			code.classList.remove("dark-mode");
+			code.classList.add("light-mode");
+		});
 	}
 
 	// Replace existing icon safely.
@@ -240,6 +262,31 @@ function showToast(message, backgroundColor) {
 		});
 	}, 3000);
 }
+
+
+/*****************
+* MODAL BEHAVIOR *
+*****************/
+
+const badgeModalInfo = document.getElementById("badge-modal-info");
+const closeBtn = badgeModalInfo.querySelector(".close-btn");
+
+// Open the modal.
+function openBadgeModalInfo() {
+	badgeModalInfo.classList.remove("hidden");
+}
+
+// Close the modal when clicking the close button.
+closeBtn.addEventListener("click", function () {
+	badgeModalInfo.classList.add("hidden");
+});
+
+// Close the modal when clicking outside the content.
+badgeModalInfo.addEventListener("click", function (event) {
+	if (event.target === badgeModalInfo) {
+		badgeModalInfo.classList.add("hidden");
+	}
+});
 
 
 /*****************************
@@ -491,6 +538,7 @@ document.getElementById("insert-badge-btn").addEventListener("click", function (
 
 	const altText = nameValue + " badge";
 	const imgTag = `<img src="${badgeUrl}" alt="${altText}">
+
 `;
 
 	insertMarkdownAtCursor(markdown, imgTag);

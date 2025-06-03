@@ -196,6 +196,11 @@
             <div id="badge-generator">
                 <div>
                     <label for="name">Name</label>
+
+                    <button class="info-btn" type="button" onclick="openBadgeModalInfo()">
+                        <i class="bi bi-info-circle"></i>
+                    </button>
+
                     <input id="name" name="name" type="text" value="Apple">
                 </div>
 
@@ -239,6 +244,38 @@
     <footer>
         <p>© 2025 - Fabien Chavonet.</p>
     </footer>
+
+    <!-- BADGE MODAL INFO -->
+    <div id="badge-modal-info" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn">
+                <i class="bi bi-x"></i>
+            </button>
+
+            <div class="modal-body">
+                <h2>Badge Generator Informations</h2>
+
+                <ul>
+                    <li><strong>Name:</strong> the text displayed on the badge (you can write what you want).</li>
+                    <li><strong>Background color:</strong> HEX color code without the <code>#</code> (<code>000000</code> for black in our example).</li>
+                    <li><strong>Logo:</strong> the icon name matching Simple Icons (<code>apple</code> in our example).</li>
+                    <li><strong>Logo color:</strong> <code>white</code> or <code>black</code> to match your background color.
+                </ul>
+
+                <p>
+                    You can find the right logo name and choose an appropriate background color from <a href="https://simpleicons.org" target="_blank">Simple Icons</a>.
+                </p>
+
+                <figure>
+                    <img src="./assets/images/screenshot-simpleicons.webp">
+
+                    <figcaption>
+                        Once you've searched for your technology, simply use the <i class="bi bi-copy rotate-90"></i> button to the right of the technology name to paste it into the space provided, then do the same with the color code.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
 
     <!-- TOAST -->
     <div id="toast-container"></div>
