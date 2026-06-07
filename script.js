@@ -325,27 +325,27 @@ document.getElementById("insert-title-btn").addEventListener("click", function (
 
 // Insert table of contents.
 document.getElementById("insert-toc-btn").addEventListener("click", function () {
-	const insertText = `## 🔖 Table of contents
+	const insertText = `## Table of contents
 
 <details>
   <summary>
     CLICK TO ENLARGE 😇
   </summary>
-  📄 <a href="#description">Description</a>
+  <a href="#description">Description</a>
   <br>
-  🎓 <a href="#objectives">Objectives</a>
+  <a href="#objectives">Objectives</a>
   <br>
-  🔨 <a href="#tech-stack">Tech stack</a>
+  <a href="#tech-stack">Tech stack</a>
   <br>
-  📂 <a href="#files-description">Files description</a>
+  <a href="#files-description">Files description</a>
   <br>
-  💻 <a href="#installation">Installation</a>
+  <a href="#installation">Installation</a>
   <br>
-  🔧 <a href="#whats-next">What's next?</a>
+  <a href="#whats-next">What's next?</a>
   <br>
-  ♥️ <a href="#thanks">Thanks</a>
+  <a href="#thanks">Thanks</a>
   <br>
-  👷 <a href="#authors">Authors</a>
+  <a href="#authors">Authors</a>
   </details>
 
 `;
@@ -354,7 +354,7 @@ document.getElementById("insert-toc-btn").addEventListener("click", function () 
 
 // Insert description.
 document.getElementById("insert-description-btn").addEventListener("click", function () {
-	const insertText = `## 📄 <span id="description">Description</span>
+	const insertText = `## <span id="description">Description</span>
 
 The project description.
 
@@ -364,7 +364,7 @@ The project description.
 
 // Insert objectives.
 document.getElementById("insert-objectives-btn").addEventListener("click", function () {
-	const insertText = `## 🎓 <span id="objectives">Objectives</span>
+	const insertText = `## <span id="objectives">Objectives</span>
 
 - Objectives list.
 
@@ -374,7 +374,7 @@ document.getElementById("insert-objectives-btn").addEventListener("click", funct
 
 // Insert tech stack.
 document.getElementById("insert-techstack-btn").addEventListener("click", function () {
-	const insertText = `## 🔨 <span id="tech-stack">Tech stack</span>
+	const insertText = `## <span id="tech-stack">Tech stack</span>
 
 <p align="left">
   <img src="https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5 badge">
@@ -388,7 +388,7 @@ document.getElementById("insert-techstack-btn").addEventListener("click", functi
 
 // Insert files description.
 document.getElementById("insert-files-btn").addEventListener("click", function () {
-	const insertText = `## 📂 <span id="files-description">File description</span>
+	const insertText = `## <span id="files-description">File description</span>
 
 | **FILE**            | **DESCRIPTION**                                   |
 | :-----------------: | ------------------------------------------------- |
@@ -403,7 +403,7 @@ document.getElementById("insert-files-btn").addEventListener("click", function (
 
 // Insert installation.
 document.getElementById("insert-installation-btn").addEventListener("click", function () {
-	const insertText = `## 💻 <span id="installation">Installation</span>
+	const insertText = `## <span id="installation">Installation</span>
 
 1. Clone this repository:
   - Open your preferred Terminal.
@@ -424,7 +424,7 @@ git clone <link_to_the_repository>
 
 // Insert what's next.
 document.getElementById("insert-next-btn").addEventListener("click", function () {
-	const insertText = `## 🔧 <span id="whats-next">What's next?</span>
+	const insertText = `## <span id="whats-next">What's next?</span>
 
 - List of next steps for the project.
 
@@ -434,7 +434,7 @@ document.getElementById("insert-next-btn").addEventListener("click", function ()
 
 // Insert Thanks.
 document.getElementById("insert-thanks-btn").addEventListener("click", function () {
-	const insertText = `## ♥️ <span id="thanks">Thanks</span>
+	const insertText = `## <span id="thanks">Thanks</span>
 
 - Your message of thanks here. 
 
@@ -444,7 +444,7 @@ document.getElementById("insert-thanks-btn").addEventListener("click", function 
 
 // Insert authors.
 document.getElementById("insert-authors-btn").addEventListener("click", function () {
-	const insertText = `## 👷 <span id="authors">Authors</span>
+	const insertText = `## <span id="authors">Authors</span>
 
 **Fabien CHAVONET**
 - GitHub: [@fchavonet](https://github.com/fchavonet)
